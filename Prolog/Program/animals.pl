@@ -21,62 +21,62 @@ animal_may_be(eagle) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,yes),
-   user_says(is_predatory,yes).
+   user_says(is_predatory,yes),!.
    
 animal_may_be(parrot) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,yes),
    user_says(is_predatory,no),
-   user_says(has_colorful_feathers,yes).
+   user_says(has_colorful_feathers,yes),!.
 
 animal_may_be(pigeon) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,yes),
    user_says(is_predatory,no),
-   user_says(has_colorful_feathers,no).
+   user_says(has_colorful_feathers,no),!.
 
 animal_may_be(ostrich) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,no),
-   user_says(hides_head,yes).
+   user_says(hides_head,yes),!.
 
 animal_may_be(penguin) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,no),
    user_says(hides_head,no),
-   user_says(lives_on_pole,yes).
+   user_says(lives_on_pole,yes),!.
 
 animal_may_be(chicken) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,yes),
    user_says(can_fly,no),
    user_says(hides_head,no),
-   user_says(lives_on_pole,no).
+   user_says(lives_on_pole,no),!.
 
 animal_may_be(jaguar) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,no),
    user_says(is_mammal,yes),
    user_says(is_carnivorous,yes),
-   user_says(runs_fast,yes).
+   user_says(runs_fast,yes),!.
 
 animal_may_be(hyena) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,no),
    user_says(is_mammal,yes),
    user_says(is_carnivorous,yes),
-   user_says(runs_fast,no).
+   user_says(runs_fast,no),!.
 
 animal_may_be(elephant) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,no),
    user_says(is_mammal,yes),
    user_says(is_carnivorous,no),
-   user_says(has_trunk,yes).
+   user_says(has_trunk,yes),!.
 
 animal_may_be(giraffe) :-
    user_says(lives_on_land,yes),
@@ -84,7 +84,7 @@ animal_may_be(giraffe) :-
    user_says(is_mammal,yes),
    user_says(is_carnivorous,no),
    user_says(has_trunk,no),
-   user_says(has_long_neck,yes).
+   user_says(has_long_neck,yes),!.
 
 animal_may_be(zebra) :-
    user_says(lives_on_land,yes),
@@ -93,7 +93,7 @@ animal_may_be(zebra) :-
    user_says(is_carnivorous,no),
    user_says(has_trunk,no),
    user_says(has_long_neck,no),
-   user_says(has_stripes,yes).
+   user_says(has_stripes,yes),!.
 
 animal_may_be(horse) :-
    user_says(lives_on_land,yes),
@@ -102,7 +102,7 @@ animal_may_be(horse) :-
    user_says(is_carnivorous,no),
    user_says(has_trunk,no),
    user_says(has_long_neck,no),
-   user_says(has_stripes,no).
+   user_says(has_stripes,no),!.
 
 animal_may_be(tyrannosaur) :-
    user_says(lives_on_land,yes),
@@ -110,7 +110,7 @@ animal_may_be(tyrannosaur) :-
    user_says(is_mammal,no),
    user_says(is_reptile,yes),
    user_says(is_carnivorous,yes),
-   user_says(is_extinct,yes).
+   user_says(is_extinct,yes),!.
 
 animal_may_be(crocodile) :-
    user_says(lives_on_land,yes),
@@ -118,7 +118,7 @@ animal_may_be(crocodile) :-
    user_says(is_mammal,no),
    user_says(is_reptile,yes),
    user_says(is_carnivorous,yes),
-   user_says(is_extinct,no).
+   user_says(is_extinct,no),!.
 
 animal_may_be(turtle) :-
    user_says(lives_on_land,yes),
@@ -126,7 +126,7 @@ animal_may_be(turtle) :-
    user_says(is_mammal,no),
    user_says(is_reptile,yes),
    user_says(is_carnivorous,no),
-   user_says(wear_house_on_its_back,yes).
+   user_says(wear_house_on_its_back,yes),!.
 
 animal_may_be(iguana) :-
    user_says(lives_on_land,yes),
@@ -134,7 +134,7 @@ animal_may_be(iguana) :-
    user_says(is_mammal,no),
    user_says(is_reptile,yes),
    user_says(is_carnivorous,no),
-   user_says(wear_house_on_its_back,no).
+   user_says(wear_house_on_its_back,no),!.
 
 animal_may_be(bee) :-
    user_says(lives_on_land,yes),
@@ -142,7 +142,7 @@ animal_may_be(bee) :-
    user_says(is_mammal,no),
    user_says(is_reptile,no),
    user_says(can_fly,yes),
-   user_says(makes_honey,yes).
+   user_says(makes_honey,yes),!.
 
 animal_may_be(mosquito) :-
    user_says(lives_on_land,yes),
@@ -151,7 +151,7 @@ animal_may_be(mosquito) :-
    user_says(is_reptile,no),
    user_says(can_fly,yes),
    user_says(makes_honey,no),
-   user_says(drinks_blood,yes).
+   user_says(drinks_blood,yes),!.
 
 animal_may_be(dragonfly) :-
    user_says(lives_on_land,yes),
@@ -160,33 +160,33 @@ animal_may_be(dragonfly) :-
    user_says(is_reptile,no),
    user_says(can_fly,yes),
    user_says(makes_honey,no),
-   user_says(drinks_blood,no).
+   user_says(drinks_blood,no),!.
 
 animal_may_be(spider) :-
    user_says(lives_on_land,yes),
    user_says(is_bird,no),
    user_says(is_mammal,no),
    user_says(is_reptile,no),
-   user_says(can_fly,no).
+   user_says(can_fly,no),!.
 
 animal_may_be(platypus) :-
    user_says(lives_on_land,no),
    user_says(can_swim,yes),
    user_says(is_mammal,yes),
-   user_says(is_oviparous,yes).
+   user_says(is_oviparous,yes),!.
 
 animal_may_be(dolphin) :-
    user_says(lives_on_land,no),
    user_says(can_swim,yes),
    user_says(is_mammal,yes),
-   user_says(is_oviparous,no).
+   user_says(is_oviparous,no),!.
 
 animal_may_be(shark) :-
    user_says(lives_on_land,no),
    user_says(can_swim,yes),
    user_says(is_mammal,no),
    user_says(has_fins,yes),
-   user_says(is_predatory,yes).
+   user_says(is_predatory,yes),!.
 
 animal_may_be(electriceel) :-
    user_says(lives_on_land,no),
@@ -194,7 +194,7 @@ animal_may_be(electriceel) :-
    user_says(is_mammal,no),
    user_says(has_fins,yes),
    user_says(is_predatory,no),
-   user_says(electrocutes,yes).
+   user_says(electrocutes,yes),!.
 
 animal_may_be(ray) :-
    user_says(lives_on_land,no),
@@ -202,32 +202,32 @@ animal_may_be(ray) :-
    user_says(is_mammal,no),
    user_says(has_fins,yes),
    user_says(is_predatory,no),
-   user_says(electrocutes,no).
+   user_says(electrocutes,no),!.
 
 animal_may_be(jellyfish) :-
    user_says(lives_on_land,no),
    user_says(can_swim,yes),
    user_says(is_mammal,no),
-   user_says(has_fins,no).
+   user_says(has_fins,no),!.
 
 animal_may_be(bivalvia) :-
    user_says(lives_on_land,no),
    user_says(can_swim,no),
    user_says(lives_in_shell,yes),
-   user_says(makes_pearls,yes).
+   user_says(makes_pearls,yes),!.
 
 animal_may_be(seasnail) :-
    user_says(lives_on_land,no),
    user_says(can_swim,no),
    user_says(lives_in_shell,yes),
-   user_says(makes_pearls,no).
+   user_says(makes_pearls,no),!.
 
 animal_may_be(crab) :-
    user_says(lives_on_land,no),
    user_says(can_swim,no),
    user_says(lives_in_shell,no),
    user_says(is_shellfish,yes),
-   user_says(walks_sideways,yes).
+   user_says(walks_sideways,yes),!.
 
 animal_may_be(notostraca) :-
    user_says(lives_on_land,no),
@@ -235,7 +235,7 @@ animal_may_be(notostraca) :-
    user_says(lives_in_shell,no),
    user_says(is_shellfish,yes),
    user_says(walks_sideways,no),
-   user_says(has_three_eyes,yes).
+   user_says(has_three_eyes,yes),!.
 
 animal_may_be(crayfish) :-
    user_says(lives_on_land,no),
@@ -243,13 +243,13 @@ animal_may_be(crayfish) :-
    user_says(lives_in_shell,no),
    user_says(is_shellfish,yes),
    user_says(walks_sideways,no),
-   user_says(has_three_eyes,no).
+   user_says(has_three_eyes,no),!.
 
 animal_may_be(starfish) :-
    user_says(lives_on_land,no),
    user_says(can_swim,no),
    user_says(lives_in_shell,no),
-   user_says(is_shellfish,no).
+   user_says(is_shellfish,no),!.
 
 
    
