@@ -1,31 +1,44 @@
 % Load question file and display it to the user line by line
 read_questions(Questions):-
 	open('questions.pl',read,Str),
-	read_questions(Str,Questions),
+	read_database(Str,Q),
+	delete(Q, Questions),
 	close(Str).
 
-read_questions(Stream,[]):-
+read_database(Stream,[]):-
 	at_end_of_stream(Stream).
 
-read_questions(Stream,[H,T]):-
+read_database(Stream,[H,T]):-
 	\+ at_end_of_stream(Stream),
 	read(Stream, H),
-	read_questions(Stream, T).
+	read_database(Stream, T).
+
+% Delete last element from list
+delete([_, []], []).
+delete([X, Xs], [X, Last]) :- delete(Xs, Last).
+
+% Append element to list
+% append(list, new_list, element)
+append([], [X, []], X).
+append([X, Xs], [X, New], Elem):- append(Xs, New, Elem).
 
 % Show all questions to the user
 list_questions():-
 	read_questions(Questions),
-	write_questions(Questions).
+	display_questions(Questions, 1).
 
-write_questions([_, []]):-
-	!.
-
-write_questions([Q1,[Q2|Q]]):-
+display_questions([], _).
+display_questions([Q1|[Q]], Number):-
+	write(Number), write('. '),
 	write(Q1), nl,
-	write_questions([Q2|Q]).
+	N is Number+1,
+	display_questions(Q, N).
 
-% Display question asked for certain feature
-show_question_value(P):-
+% Get question info
+get_question_text(Predicate, Text):-
 	[questions],
-	pytanie(P, _, T),
-	write(T), nl.
+	pytanie(Predicate, _, Text).
+
+get_question_number(Predicate, Number):-
+	[questions],
+	pytanie(Predicate, Number, _).
