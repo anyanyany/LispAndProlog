@@ -1,4 +1,4 @@
-zwierze(panda, [1, 2], []).
+zwierze(panda, [1, 4], []).
 zwierze(waszka, [2], []).
 zwierze(krokodyl, [3], []).
 

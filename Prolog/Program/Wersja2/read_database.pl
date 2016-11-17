@@ -55,28 +55,3 @@ get_question_text(Predicate, Text):-
 get_question_number(Predicate, Number):-
 	[questions],
 	pytanie(Predicate, Number, _).
-
-% Start quiz
-start_quiz():-
-	[getyesno],
-	read_animals(Animals),
-	traverse_and_ask_question(Animals).
-
-% Go through all animals and ask questions regarding each one of them
-traverse_and_ask_question([]).
-traverse_and_ask_question([Animal | [Rest]]):-
-	ask_questions(Animal),
-	traverse_and_ask_question(Rest).
-
-% Ask all questions regarding your animals
-ask_questions(zwierze(Name, Questions, _)):-
-	ask_question(Questions, Name).
-
-% Ask one specific question
-ask_question([], Name):-
-	write('Twoim zwierzeciem jest '), write(Name), nl.
-ask_question([Qnum | Rest], Name):-
-	get_question_text(Qnum, Text),
-	write(Text), nl,
-	get_yes_or_no(_),
-	ask_question(Rest, Name).
