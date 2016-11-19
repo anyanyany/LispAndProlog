@@ -1,5 +1,34 @@
 % Start quiz
 
+start_quiz():-
+	[read_database],
+	[getyesno],	
+	clear_stored_answers,
+	read_animals(Animals),
+	traverse_and_ask_question(Animals, no).
+
+new_animal():-
+	[add_animal],
+	animal_addition_procedure().
+
+new_question():-
+	[add_question],
+	question_addition_procedure().
+
+show_animals():-
+	[add_animal],
+	[read_database],
+	read_animals(Animals),
+	display_animal_list(Animals, 1).
+
+show_questions():-
+	[add_question],
+	[read_database],
+	read_questions(Questions),
+	display_question_list(Questions).
+
+% Helper functions down there ;)
+
 :- dynamic(stored_answer/2).
 clear_stored_answers :- retract(stored_answer(_,_)),fail.
 clear_stored_answers.
@@ -15,13 +44,6 @@ user_says(Q,A):-
 	get_yes_or_no(Response),
 	asserta(stored_answer(Q,Response)),
 	Response = A.
-
-start_quiz():-
-	[read_database],
-	[getyesno],	
-	clear_stored_answers,
-	read_animals(Animals),
-	traverse_and_ask_question(Animals, no).
 
 % Go through all animals and ask questions regarding each one of them	
 traverse_and_ask_question(_, yes). % TODO: Tutaj dopisac przegladanie reszty zwierzat tym razem bez zadawania pytan

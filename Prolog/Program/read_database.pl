@@ -47,11 +47,4 @@ display_questions([Q1|[Q]], Number):-
 % Get question info	
 get_question_text(Number, Text):-
 	[questions],
-	pytanie(_, Number, Text).
-get_question_text(Predicate, Text):-
-	[questions],
-	pytanie(Predicate, _, Text).
-
-get_question_number(Predicate, Number):-
-	[questions],
-	pytanie(Predicate, Number, _).
+	pytanie(Number, Text).
