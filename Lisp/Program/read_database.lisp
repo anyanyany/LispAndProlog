@@ -37,8 +37,26 @@
     )
 )
 
+(defmacro ask_questions (for questions_number in questions_list conditional test)
+    (loop for questions_number in questions_list
+        do (print questions_number)
+    )
+)
+
+(defmacro ask_about (animal questions)
+    (let ((yes_questions (gensym)))
+    `(let ((yes_questions (nth 2 ,animal)))
+        (print yes_questions)
+        (ask_questions for q in ,yes_questions if (= 1 1))
+        (setq questions_list 42)
+    ))
+)
+
 ;; TODO: Remove this after testing!
-(print (read_animals))
-(print (read_questions))
+(defvar animals (read_animals))
+(print animals)
+;(print (read_questions))
 (save_database (read_animals) "list.lisp")
+
+(ask_about (nth 0 animals) (read_questions))
 
