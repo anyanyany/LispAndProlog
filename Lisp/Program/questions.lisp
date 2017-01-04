@@ -1,1 +1,3 @@
-(defvar is_mammal "czy jest ssakiem?")
+(1 "czy jest ssakiem?")
+(9 "czy jest przekopnica")
+(5 "czy jest wodnym gownem jak lisp?")

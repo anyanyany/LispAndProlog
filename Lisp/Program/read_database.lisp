@@ -1,11 +1,21 @@
 ;;; Set of funtions for reading database
 
 (defun read_animals () "Reads animals stored in a database file"
-    (read_database "animals.lisp")
+    (defvar animal_strings (read_database "animals.lisp"))
+    (defvar animals nil)
+    (loop for animal in animal_strings
+        do (setq animals (append animals (list (read-from-string animal))))
+    )
+    (return-from read_animals animals)
 )
 
 (defun read_questions () "Reads questions stored in a database file"
-    (read_database "questions.lisp")
+    (defvar question_strings (read_database "questions.lisp"))
+    (defvar questions nil)
+    (loop for question in question_strings
+        do (setq questions (append questions (list (read-from-string question))))
+    )
+    (return-from read_questions questions)
 )
 
 (defun read_database (filename)
@@ -31,32 +41,42 @@
                      :if-exists :supersede
                      :if-does-not-exist :create)
         (loop for obj in objects
-            while obj
             do (format out "~a~%" obj)
         )
     )
 )
 
-(defmacro ask_questions (for questions_number in questions_list conditional test)
-    (loop for questions_number in questions_list
-        do (print questions_number)
+(defmacro ask_questions (for questions_number in questions_list using question_data expect expected_answer)
+    (let ((questions (gensym)) (question_dict (gensym)) (expected (gensym)))
+        `(let ((questions ,questions_list) (question_dict ,question_data) (expected ,expected_answer))
+            (loop for q in questions
+                do (loop for d in question_dict
+                    do (setq qnum (nth 0 d))
+                    do (setq qtxt (nth 1 d))
+                    do (if (equal q qnum)
+                         ;; Wczytywanie odpowiedzi!
+                        (print (concatenate 'string qtxt " expected: " expected))
+                    )
+                )
+            )
+        )
     )
 )
 
-(defmacro ask_about (animal questions)
-    (let ((yes_questions (gensym)))
-    `(let ((yes_questions (nth 2 ,animal)))
-        (print yes_questions)
-        (ask_questions for q in ,yes_questions if (= 1 1))
-        (setq questions_list 42)
-    ))
+(defun ask_about (animal questions)
+    (setq yes_questions (nth 1 animal))
+    (setq no_questions (nth 2 animal))
+    (ask_questions for q in yes_questions using questions expect "yes")
+    (ask_questions for q in no_questions using questions expect "no")
 )
 
 ;; TODO: Remove this after testing!
 (defvar animals (read_animals))
+(defvar questions (read_questions))
 (print animals)
-;(print (read_questions))
-(save_database (read_animals) "list.lisp")
+(print questions)
+(save_database animals "list.lisp")
 
-(ask_about (nth 0 animals) (read_questions))
+(ask_about (nth 0 animals) questions)
+(ask_about (nth 1 animals) questions)
 
