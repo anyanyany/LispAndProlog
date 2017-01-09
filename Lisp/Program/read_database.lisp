@@ -41,7 +41,8 @@
                      :if-exists :supersede
                      :if-does-not-exist :create)
         (loop for obj in objects
-            do (format out "~a~%" obj)
+            do (prin1 obj out)
+            do (terpri out)
         )
     )
 )
