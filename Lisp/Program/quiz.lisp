@@ -1,3 +1,5 @@
+(load "read_database.lisp")
+
 (defun ask (question_text)
     (print question_text)
     (setq user_answer (string-downcase (write-to-string (read))))
@@ -78,6 +80,3 @@
     ; (ask_about (nth 0 animals) questions)
     (foreach animal in animals apply #'ask_about with (list questions saved_answers))
 )
-
-(load "read_database.lisp")
-(quiz)
